@@ -5,131 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Farhan Innayatullah</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Menggunakan Font Inter yang super tajam dan bersih ala Web Developer Pro -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
+        
         body { 
-            font-family: 'Poppins', sans-serif; background-color: #0f172a; color: white; overflow-x: hidden; 
+            font-family: 'Inter', sans-serif; 
+            color: #f1f5f9; 
+            overflow-x: hidden; 
+            
+            /* BACKGROUND HIDUP: Jaringan Siber Futuristik dengan Efek Kedalaman */
+            background: linear-gradient(135deg, rgba(3, 7, 18, 0.92) 0%, rgba(15, 23, 42, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+        }
+
+        /* Efek Kilau Cahaya Ambient di Latar Belakang */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20%;
+            left: -20%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, rgba(56, 189, 248, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
         }
         
         /* =========================================
-           1. DESAIN HAMBURGER MENU (GARIS TIGA)
+           DESAIN HAMBURGER MENU (Kompak di Kanan)
            ========================================= */
         nav {
             position: fixed; width: 100%; top: 0; z-index: 100;
-            background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px);
-            padding: 15px 8%; 
-            display: flex; justify-content: flex-end; /* Memposisikan garis 3 di kanan */
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(16px);
+            padding: 18px 8%; 
+            display: flex; justify-content: flex-end; 
+            border-bottom: 1px solid rgba(16, 185, 129, 0.15);
         }
         
-        /* Ikon Garis Tiga */
-        .hamburger { font-size: 30px; cursor: pointer; color: white; user-select: none; }
-        .hamburger:hover { color: #38bdf8; }
+        .menu-container { position: relative; }
 
-        /* Daftar Menu yang Tersembunyi (Dropdown) */
+        .hamburger { font-size: 28px; cursor: pointer; color: #10b981; user-select: none; display: block; transition: 0.3s; }
+        .hamburger:hover { color: #38bdf8; transform: scale(1.1); }
+
+        /* Kotak Menu Melayang Elegan */
         nav ul { 
-            list-style: none; position: absolute; top: 100%; left: 0; width: 100%;
-            background: rgba(15, 23, 42, 0.98); 
-            display: flex; flex-direction: column; align-items: center; gap: 20px;
-            /* Animasi Meluncur */
-            max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            list-style: none; 
+            position: absolute; 
+            top: 55px; right: 0; width: 210px; 
+            background: rgba(11, 19, 36, 0.95); backdrop-filter: blur(20px);
+            display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
+            padding: 0; border-radius: 14px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            
+            max-height: 0; overflow: hidden; opacity: 0; 
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.3s;
         }
-        /* Kelas aktif yang akan ditambahkan oleh JavaScript saat diklik */
-        nav ul.aktif { max-height: 400px; padding: 20px 0; }
         
-        nav ul li a { text-decoration: none; color: #cbd5e1; font-weight: 600; transition: 0.3s; font-size: 16px; }
-        nav ul li a:hover { color: #38bdf8; }
-
-        /* =========================================
-           2. PENGATURAN UMUM SECTIONS & KARTU
-           ========================================= */
-        section { min-height: 100vh; padding: 100px 10% 80px; display: flex; flex-direction: column; justify-content: center;}
-        .judul-utama { font-size: 36px; color: #38bdf8; margin-bottom: 10px; text-align: center; }
-        .sub-judul { color: #94a3b8; margin-bottom: 50px; font-size: 18px; text-align: center; }
+        nav ul.aktif { 
+            max-height: 320px; 
+            opacity: 1;
+            padding: 22px; 
+        }
         
-        .bg-gelap { background-color: #0f172a; }
-        .bg-terang { background-color: #1e293b; }
+        nav ul li { width: 100%; }
+        nav ul li a { 
+            text-decoration: none; color: #cbd5e1; font-weight: 500; letter-spacing: -0.01em;
+            transition: 0.2s; font-size: 15px; display: block; width: 100%;
+            padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        nav ul li:last-child a { border-bottom: none; }
+        nav ul li a:hover { color: #10b981; padding-left: 6px; }
 
-        /* Desain Kartu Universal (Bisa dipakai di semua section) */
-        .grid-kartu { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; width: 100%; }
+        /* PENGATURAN UMUM SECTIONS & KARTU KACA */
+        section { min-height: 100vh; padding: 110px 10% 80px; display: flex; flex-direction: column; justify-content: center;}
+        
+        .judul-utama { 
+            font-size: 40px; font-weight: 700; color: #f8fafc; margin-bottom: 12px; text-align: center; 
+            letter-spacing: -0.03em;
+        }
+        .judul-utama span { color: #10b981; text-shadow: 0 0 20px rgba(16, 185, 129, 0.3); }
+        
+        .sub-judul { color: #94a3b8; margin-bottom: 55px; font-size: 17px; text-align: center; font-weight: 400; }
+        
+        .grid-kartu { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 30px; width: 100%; }
+        
+        /* Kartu Kaca Futuristik dengan Aksen Hijau Emerald */
         .kartu-item {
-            background: #0f172a; border-radius: 15px; overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.05); text-align: left; cursor: pointer; 
+            background: rgba(15, 23, 42, 0.6); 
+            backdrop-filter: blur(14px);         
+            border-radius: 18px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08); text-align: left; cursor: pointer; 
         }
-        .bg-gelap .kartu-item { background: #1e293b; } /* Agar kartu terlihat di background gelap */
+        .kartu-item:hover { 
+            transform: translateY(-8px); 
+            border-color: rgba(16, 185, 129, 0.6); 
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.15); 
+        }
         
-        .kartu-item:hover { transform: translateY(-10px); border-color: rgba(56, 189, 248, 0.5); }
-        .kartu-gambar { width: 100%; height: 200px; overflow: hidden; }
-        .kartu-gambar img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .kartu-item:hover .kartu-gambar img { transform: scale(1.1); filter: brightness(0.7); }
-        .kartu-teks { padding: 25px; }
-        .kartu-teks h3 { color: white; font-size: 22px; margin-bottom: 10px; }
-        .kartu-teks p { color: #94a3b8; font-size: 15px; line-height: 1.6; }
-        .klik-info { color: #38bdf8; font-size: 12px; font-weight: bold; margin-top: 15px; display: block; }
+        .kartu-gambar { width: 100%; height: 210px; overflow: hidden; }
+        .kartu-gambar img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s ease; }
+        .kartu-item:hover .kartu-gambar img { transform: scale(1.06); filter: brightness(0.85); }
+        
+        .kartu-teks { padding: 28px; }
+        .kartu-teks h3 { color: #f8fafc; font-size: 21px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.02em; }
+        .kartu-teks p { color: #94a3b8; font-size: 14.5px; line-height: 1.6; }
+        .klik-info { color: #10b981; font-size: 13px; font-weight: 600; margin-top: 18px; display: inline-flex; align-items: center; gap: 5px; transition: 0.2s; }
+        .kartu-item:hover .klik-info { color: #34d399; transform: translateX(4px); }
 
-        /* =========================================
-           3. DESAIN BERANDA & MODAL POP-UP
-           ========================================= */
-        .hero { 
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
-                        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover; background-position: center; background-attachment: fixed; 
-            flex-direction: row; align-items: center; gap: 50px; flex-wrap: wrap; 
-        }
-        .hero-text { flex: 1; min-width: 300px; animation: geserKanan 1.2s ease-out; }
-        .hero-text h1 { font-size: 50px; line-height: 1.2; margin-bottom: 20px; }
-        .hero-text h1 span { color: #38bdf8; }
-        .hero-text p { font-size: 18px; color: #94a3b8; margin-bottom: 30px; line-height: 1.6; }
+        /* DESAIN BERANDA */
+        .hero { flex-direction: row; align-items: center; gap: 60px; flex-wrap: wrap; }
+        .hero-text { flex: 1; min-width: 320px; animation: geserKanan 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .hero-text h1 { font-size: 52px; font-weight: 700; line-height: 1.15; margin-bottom: 20px; letter-spacing: -0.03em; }
+        .hero-text h1 span { color: #10b981; text-shadow: 0 0 25px rgba(16, 185, 129, 0.4); }
+        .hero-text p { font-size: 17.5px; color: #94a3b8; margin-bottom: 35px; line-height: 1.7; }
         
         .btn {
-            display: inline-block; padding: 15px 35px; background: #38bdf8; color: #0f172a; 
-            font-weight: bold; border-radius: 30px; text-decoration: none; transition: 0.3s;
+            display: inline-block; padding: 16px 36px; background: #10b981; color: #030712; 
+            font-weight: 600; border-radius: 35px; text-decoration: none; transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.35); font-size: 15px;
         }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.4); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(16, 185, 129, 0.6); background: #34d399; }
 
-        .hero-image { flex: 1; text-align: center; animation: geserKiri 1.2s ease-out; }
+        .hero-image { flex: 1; text-align: center; animation: geserKiri 1s cubic-bezier(0.16, 1, 0.3, 1); }
         .hero-image img { 
-            width: 320px; height: 320px; border-radius: 50%; object-fit: cover; 
-            border: 5px solid #38bdf8; box-shadow: 0 0 30px rgba(56, 189, 248, 0.3); transition: 0.5s; 
+            width: 330px; height: 330px; border-radius: 50%; object-fit: cover; 
+            border: 4px solid #10b981; box-shadow: 0 0 40px rgba(16, 185, 129, 0.3); transition: 0.5s ease; 
         }
-        .hero-image img:hover { transform: scale(1.05) rotate(5deg); }
+        .hero-image img:hover { transform: scale(1.03) rotate(3deg); border-color: #34d399; }
 
-        /* Modal Pop-up */
+        /* Modal Pop-up Futuristik */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px);
+            background: rgba(3, 7, 18, 0.92); backdrop-filter: blur(18px);
             z-index: 999; display: none; justify-content: center; align-items: center; padding: 20px;
-            opacity: 0; transition: opacity 0.3s;
+            opacity: 0; transition: opacity 0.3s ease;
         }
         .modal-content {
-            background: #1e293b; border-radius: 20px; max-width: 900px; width: 100%;
-            display: flex; overflow: hidden; transform: translateY(50px);
-            transition: transform 0.4s ease-out; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(25px);
+            border-radius: 20px; max-width: 920px; width: 100%;
+            display: flex; overflow: hidden; transform: translateY(40px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+            border: 1px solid rgba(16, 185, 129, 0.35);
         }
-        .modal-kiri { flex: 1; padding: 40px; display: flex; flex-direction: column; justify-content: center; overflow-y: auto;}
-        .modal-kiri h2 { color: #38bdf8; font-size: 32px; margin-bottom: 20px; }
-        .modal-kiri p { color: #cbd5e1; font-size: 16px; line-height: 1.8; margin-bottom: 30px; }
+        .modal-kiri { flex: 1; padding: 45px; display: flex; flex-direction: column; justify-content: center; overflow-y: auto;}
+        .modal-kiri h2 { color: #f8fafc; font-size: 32px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.02em; }
+        .modal-kiri p { color: #cbd5e1; font-size: 16px; line-height: 1.8; margin-bottom: 35px; }
         .btn-tutup {
-            padding: 10px 25px; background: transparent; color: white; border: 2px solid white;
-            border-radius: 30px; cursor: pointer; font-weight: bold; align-self: flex-start; transition: 0.3s;
+            padding: 11px 28px; background: transparent; color: #f8fafc; border: 2px solid #10b981;
+            border-radius: 30px; cursor: pointer; font-weight: 600; align-self: flex-start; transition: 0.3s;
         }
-        .btn-tutup:hover { background: white; color: #0f172a; }
-        .modal-kanan { flex: 1; min-height: 300px; }
+        .btn-tutup:hover { background: #10b981; color: #030712; }
+        .modal-kanan { flex: 1; min-height: 320px; }
         .modal-kanan img { width: 100%; height: 100%; object-fit: cover; }
 
-        @keyframes geserKanan { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
-        @keyframes geserKiri { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes geserKanan { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes geserKiri { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
 
         @media (max-width: 768px) {
             .modal-content { flex-direction: column-reverse; max-height: 90vh; } 
-            .modal-kanan { max-height: 250px; }
-            .modal-kiri { padding: 25px; }
+            .modal-kanan { max-height: 240px; }
+            .modal-kiri { padding: 30px; }
+            .hero-text h1 { font-size: 38px; }
+            .judul-utama { font-size: 32px; }
         }
     </style>
 </head>
@@ -137,26 +183,24 @@
 
     <!-- NAVIGASI HAMBURGER MENU -->
     <nav>
-        <!-- Tombol Garis Tiga (Hamburger) -->
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-        
-        <!-- Daftar Menu Dropdown -->
-        <ul id="menu-dropdown">
-            <!-- onclick ditambahkan agar menu menutup otomatis saat link ditekan -->
-            <li><a href="#beranda" onclick="toggleMenu()">Beranda</a></li>
-            <li><a href="#profil" onclick="toggleMenu()">Profil</a></li>
-            <li><a href="#pengalaman" onclick="toggleMenu()">Pengalaman</a></li>
-            <li><a href="#proyek" onclick="toggleMenu()">Proyek</a></li>
-            <li><a href="#sertifikat" onclick="toggleMenu()">Sertifikat</a></li>
-        </ul>
+        <div class="menu-container">
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+            <ul id="menu-dropdown">
+                <li><a href="#beranda" onclick="toggleMenu()">Beranda</a></li>
+                <li><a href="#profil" onclick="toggleMenu()">Profil</a></li>
+                <li><a href="#pengalaman" onclick="toggleMenu()">Pengalaman</a></li>
+                <li><a href="#proyek" onclick="toggleMenu()">Proyek</a></li>
+                <li><a href="#sertifikat" onclick="toggleMenu()">Sertifikat</a></li>
+            </ul>
+        </div>
     </nav>
 
     <!-- 1. BERANDA -->
-    <section id="beranda" class="hero bg-gelap">
+    <section id="beranda" class="hero">
         <div class="hero-text">
             <h1>Halo, Saya <br><span>Farhan Innayatullah</span></h1>
-            <p>Selamat datang di website profil interaktif saya. Silakan jelajahi perjalanan karir dan karya-karya terbaik yang pernah saya buat.</p>
-            <a href="#profil" class="btn">Lihat Selengkapnya</a>
+            <p>Selamat datang di website portofolio interaktif saya. Mengeksplorasi dunia pengembangan web modern dengan antarmuka yang bersih, elegan, dan interaktif.</p>
+            <a href="#profil" class="btn">Jelajahi Profil ➔</a>
         </div>
         <div class="hero-image">
             <img src="foto.jpg" alt="Foto Profil">
@@ -164,17 +208,17 @@
     </section>
 
     <!-- 2. PROFIL -->
-    <section id="profil" class="bg-terang">
-        <h2 class="judul-utama">Profil Saya</h2>
-        <p class="sub-judul">Klik pada kartu di bawah ini untuk melihat detailnya!</p>
+    <section id="profil">
+        <h2 class="judul-utama"><span>Profil</span> Saya</h2>
+        <p class="sub-judul">Klik pada kartu di bawah ini untuk melihat detail informasi.</p>
         
         <div class="grid-kartu">
             <div class="kartu-item" onclick="bukaModal(this)">
                 <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="Hobi"></div>
                 <div class="kartu-teks">
                     <h3>Hobi Coding</h3>
-                    <p>Saya sangat menyukai dunia pemrograman. Memecahkan masalah logika...</p>
-                    <span class="detail-lengkap" style="display:none;">Saya sangat menyukai dunia pemrograman. Memecahkan masalah logika dan merancang antarmuka website adalah kegiatan yang menyenangkan bagi saya di waktu luang. Saya selalu tertantang untuk mempelajari hal baru.</span>
+                    <p>Saya sangat menyukai dunia pemrograman dan eksplorasi logika sistem...</p>
+                    <span class="detail-lengkap" style="display:none;">Saya sangat menyukai dunia pemrograman. Memecahkan masalah logika dan merancang antarmuka website adalah kegiatan yang menyenangkan bagi saya di waktu luang. Saya selalu tertantang untuk mempelajari bahasa dan teknologi baru.</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
             </div>
@@ -182,9 +226,9 @@
             <div class="kartu-item" onclick="bukaModal(this)">
                 <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=600&q=80" alt="Desain"></div>
                 <div class="kartu-teks">
-                    <h3>Desain Grafis</h3>
-                    <p>Selain menulis kode, saya juga tertarik pada estetika dan UI/UX design...</p>
-                    <span class="detail-lengkap" style="display:none;">Selain menulis kode, saya juga tertarik pada estetika dan UI/UX design. Saya percaya bahwa tampilan yang indah akan membuat pengguna merasa lebih nyaman. Menggabungkan kode efisien dengan desain visual adalah tujuan utama saya.</span>
+                    <h3>Desain UI/UX</h3>
+                    <p>Memfokuskan diri pada estetika tata letak dan kenyamanan pengguna...</p>
+                    <span class="detail-lengkap" style="display:none;">Selain menulis kode, saya juga tertarik pada estetika dan UI/UX design. Saya percaya bahwa tampilan yang indah akan membuat pengguna merasa lebih nyaman. Menggabungkan kode yang efisien dengan desain visual yang memukau adalah tujuan utama saya.</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
             </div>
@@ -192,16 +236,16 @@
     </section>
 
     <!-- 3. PENGALAMAN -->
-    <section id="pengalaman" class="bg-gelap">
-        <h2 class="judul-utama">Pengalaman</h2>
-        <p class="sub-judul">Perjalanan karir dan organisasi saya sejauh ini.</p>
+    <section id="pengalaman">
+        <h2 class="judul-utama"><span>Pengalaman</span></h2>
+        <p class="sub-judul">Jejak langkah karir, organisasi, dan aktivitas profesional.</p>
         
         <div class="grid-kartu">
             <div class="kartu-item" onclick="bukaModal(this)">
                 <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80" alt="Kerja"></div>
                 <div class="kartu-teks">
                     <h3>Magang Web Developer</h3>
-                    <p>Berpartisipasi dalam pengembangan website perusahaan dan merancang...</p>
+                    <p>Berpartisipasi dalam pengembangan sistem web perusahaan...</p>
                     <span class="detail-lengkap" style="display:none;">Selama masa magang, saya berpartisipasi dalam pengembangan website perusahaan. Saya bertugas merancang antarmuka pengguna (UI) dan memastikan website dapat diakses dengan cepat. Ini memberi saya pengalaman berharga dalam bekerja dengan tim profesional.</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
@@ -211,7 +255,7 @@
                 <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1477281765962-ef34e8bb0967?auto=format&fit=crop&w=600&q=80" alt="Organisasi"></div>
                 <div class="kartu-teks">
                     <h3>Ketua Organisasi IT</h3>
-                    <p>Memimpin divisi teknologi dalam kegiatan kampus dan menyelenggarakan...</p>
+                    <p>Memimpin divisi teknologi dalam kegiatan kampus dan komunitas...</p>
                     <span class="detail-lengkap" style="display:none;">Saya dipercaya sebagai ketua organisasi IT kampus. Tugas utama saya meliputi memimpin divisi teknologi, menyelenggarakan seminar pemrograman, dan membangun relasi kerja sama dengan komunitas developer lokal.</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
@@ -220,16 +264,16 @@
     </section>
 
     <!-- 4. PROYEK -->
-    <section id="proyek" class="bg-terang">
-        <h2 class="judul-utama">Proyek</h2>
-        <p class="sub-judul">Beberapa karya dan portofolio yang pernah saya kerjakan.</p>
+    <section id="proyek">
+        <h2 class="judul-utama"><span>Proyek</span> Pilihan</h2>
+        <p class="sub-judul">Karya nyata yang telah berhasil dibangun dan dikembangkan.</p>
         
         <div class="grid-kartu">
             <div class="kartu-item" onclick="bukaModal(this)">
                 <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Web Bisnis"></div>
                 <div class="kartu-teks">
-                    <h3>Website Toko Online</h3>
-                    <p>Membuat website e-commerce dengan fitur keranjang belanja dan...</p>
+                    <h3>Website E-Commerce</h3>
+                    <p>Membangun platform toko online dengan fitur keranjang dan transaksi...</p>
                     <span class="detail-lengkap" style="display:none;">Saya mengembangkan website e-commerce lengkap dengan fitur keranjang belanja dan integrasi pembayaran. Website ini dibuat responsif sehingga sangat nyaman digunakan baik melalui laptop maupun layar smartphone.</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
@@ -238,8 +282,8 @@
             <div class="kartu-item" onclick="bukaModal(this)">
                 <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Aplikasi Kasir"></div>
                 <div class="kartu-teks">
-                    <h3>Sistem Kasir Pintar</h3>
-                    <p>Aplikasi kasir berbasis web untuk mencatat inventaris barang dan...</p>
+                    <h3>Sistem POS Pintar</h3>
+                    <p>Aplikasi pencatatan kasir dan manajemen inventaris berbasis web...</p>
                     <span class="detail-lengkap" style="display:none;">Sebuah aplikasi kasir berbasis web yang saya bangun untuk membantu UMKM. Sistem ini secara otomatis mencatat inventaris barang, menghitung total penjualan harian, dan mencetak struk secara digital.</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
@@ -248,16 +292,16 @@
     </section>
 
     <!-- 5. SERTIFIKAT -->
-    <section id="sertifikat" class="bg-gelap">
-        <h2 class="judul-utama">Sertifikat</h2>
-        <p class="sub-judul">Penghargaan dan sertifikasi yang telah saya capai.</p>
+    <section id="sertifikat">
+        <h2 class="judul-utama"><span>Sertifikat</span> & Keahlian</h2>
+        <p class="sub-judul">Dokumentasi pencapaian kompetensi dan pelatihan.</p>
         
         <div class="grid-kartu">
             <div class="kartu-item" onclick="bukaModal(this)">
                 <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1589330694653-efa67828f3ea?auto=format&fit=crop&w=600&q=80" alt="Sertifikat"></div>
                 <div class="kartu-teks">
-                    <h3>Sertifikasi Web Developer</h3>
-                    <p>Mendapatkan lisensi kelulusan dari Bootcamp pemrograman ternama...</p>
+                    <h3>Sertifikasi Web Development</h3>
+                    <p>Kelulusan dari program pelatihan intensif tingkat lanjut...</p>
                     <span class="detail-lengkap" style="display:none;">Saya berhasil mendapatkan lisensi kelulusan dari Bootcamp pemrograman ternama setelah menyelesaikan kursus intensif selama 3 bulan. Sertifikat ini menjadi bukti kemampuan saya dalam memahami struktur front-end modern.</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
@@ -265,12 +309,12 @@
         </div>
     </section>
 
-    <!-- POP-UP (MODAL) DETAIL UNIVERSAL -->
+    <!-- POP-UP (MODAL) DETAIL -->
     <div id="modal-layar" class="modal-overlay">
         <div class="modal-content" id="modal-konten">
             <div class="modal-kiri">
-                <h2 id="modal-judul">Judul Profil</h2>
-                <p id="modal-deskripsi">Deskripsi lengkap akan muncul di sini.</p>
+                <h2 id="modal-judul">Judul</h2>
+                <p id="modal-deskripsi">Deskripsi...</p>
                 <button class="btn-tutup" onclick="tutupModal()">Tutup</button>
             </div>
             <div class="modal-kanan">
@@ -281,14 +325,11 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // --- 1. Fungsi untuk Hamburger Menu ---
         function toggleMenu() {
             const menu = document.getElementById('menu-dropdown');
-            // Menambahkan/menghapus kelas "aktif" untuk memunculkan/menyembunyikan menu
             menu.classList.toggle('aktif'); 
         }
 
-        // --- 2. Fungsi untuk Modal Pop-up (Bisa dipakai di semua section) ---
         function bukaModal(elemenKartu) {
             const gambar = elemenKartu.querySelector('.kartu-gambar img').src;
             const judul = elemenKartu.querySelector('.kartu-teks h3').innerText;
@@ -313,7 +354,7 @@
             const konten = document.getElementById('modal-konten');
             
             layar.style.opacity = '0';
-            konten.style.transform = 'translateY(50px)';
+            konten.style.transform = 'translateY(40px)';
             
             setTimeout(() => {
                 layar.style.display = 'none';
