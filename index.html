@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Farhan Innayatullah</title>
     
-    <!-- Menggunakan Font Inter yang super tajam dan bersih ala Web Developer Pro -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -16,8 +15,6 @@
             font-family: 'Inter', sans-serif; 
             color: #f1f5f9; 
             overflow-x: hidden; 
-            
-            /* BACKGROUND HIDUP: Jaringan Siber Futuristik dengan Efek Kedalaman */
             background: linear-gradient(135deg, rgba(3, 7, 18, 0.92) 0%, rgba(15, 23, 42, 0.95) 100%), 
                         url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
@@ -25,7 +22,6 @@
             background-attachment: fixed; 
         }
 
-        /* Efek Kilau Cahaya Ambient di Latar Belakang */
         body::before {
             content: '';
             position: fixed;
@@ -38,9 +34,7 @@
             pointer-events: none;
         }
         
-        /* =========================================
-           DESAIN HAMBURGER MENU (Kompak di Kanan)
-           ========================================= */
+        /* NAVIGASI */
         nav {
             position: fixed; width: 100%; top: 0; z-index: 100;
             background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(16px);
@@ -50,41 +44,31 @@
         }
         
         .menu-container { position: relative; }
-
         .hamburger { font-size: 28px; cursor: pointer; color: #10b981; user-select: none; display: block; transition: 0.3s; }
         .hamburger:hover { color: #38bdf8; transform: scale(1.1); }
 
-        /* Kotak Menu Melayang Elegan */
         nav ul { 
-            list-style: none; 
-            position: absolute; 
-            top: 55px; right: 0; width: 210px; 
+            list-style: none; position: absolute; top: 55px; right: 0; width: 210px; 
             background: rgba(11, 19, 36, 0.95); backdrop-filter: blur(20px);
             display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
             padding: 0; border-radius: 14px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.7);
             border: 1px solid rgba(16, 185, 129, 0.3);
-            
             max-height: 0; overflow: hidden; opacity: 0; 
             transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.3s;
         }
         
-        nav ul.aktif { 
-            max-height: 320px; 
-            opacity: 1;
-            padding: 22px; 
-        }
-        
+        nav ul.aktif { max-height: 320px; opacity: 1; padding: 22px; }
         nav ul li { width: 100%; }
         nav ul li a { 
-            text-decoration: none; color: #cbd5e1; font-weight: 500; letter-spacing: -0.01em;
+            text-decoration: none; color: #cbd5e1; font-weight: 500; 
             transition: 0.2s; font-size: 15px; display: block; width: 100%;
             padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
         }
         nav ul li:last-child a { border-bottom: none; }
         nav ul li a:hover { color: #10b981; padding-left: 6px; }
 
-        /* PENGATURAN UMUM SECTIONS & KARTU KACA */
+        /* SECTIONS & KARTU */
         section { min-height: 100vh; padding: 110px 10% 80px; display: flex; flex-direction: column; justify-content: center;}
         
         .judul-utama { 
@@ -92,12 +76,10 @@
             letter-spacing: -0.03em;
         }
         .judul-utama span { color: #10b981; text-shadow: 0 0 20px rgba(16, 185, 129, 0.3); }
-        
         .sub-judul { color: #94a3b8; margin-bottom: 55px; font-size: 17px; text-align: center; font-weight: 400; }
         
         .grid-kartu { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 30px; width: 100%; }
         
-        /* Kartu Kaca Futuristik dengan Aksen Hijau Emerald */
         .kartu-item {
             background: rgba(15, 23, 42, 0.6); 
             backdrop-filter: blur(14px);         
@@ -116,15 +98,15 @@
         .kartu-item:hover .kartu-gambar img { transform: scale(1.06); filter: brightness(0.85); }
         
         .kartu-teks { padding: 28px; }
-        .kartu-teks h3 { color: #f8fafc; font-size: 21px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.02em; }
+        .kartu-teks h3 { color: #f8fafc; font-size: 21px; font-weight: 600; margin-bottom: 10px; }
         .kartu-teks p { color: #94a3b8; font-size: 14.5px; line-height: 1.6; }
         .klik-info { color: #10b981; font-size: 13px; font-weight: 600; margin-top: 18px; display: inline-flex; align-items: center; gap: 5px; transition: 0.2s; }
         .kartu-item:hover .klik-info { color: #34d399; transform: translateX(4px); }
 
-        /* DESAIN BERANDA */
+        /* BERANDA */
         .hero { flex-direction: row; align-items: center; gap: 60px; flex-wrap: wrap; }
         .hero-text { flex: 1; min-width: 320px; animation: geserKanan 1s cubic-bezier(0.16, 1, 0.3, 1); }
-        .hero-text h1 { font-size: 52px; font-weight: 700; line-height: 1.15; margin-bottom: 20px; letter-spacing: -0.03em; }
+        .hero-text h1 { font-size: 52px; font-weight: 700; line-height: 1.15; margin-bottom: 20px; }
         .hero-text h1 span { color: #10b981; text-shadow: 0 0 25px rgba(16, 185, 129, 0.4); }
         .hero-text p { font-size: 17.5px; color: #94a3b8; margin-bottom: 35px; line-height: 1.7; }
         
@@ -142,7 +124,7 @@
         }
         .hero-image img:hover { transform: scale(1.03) rotate(3deg); border-color: #34d399; }
 
-        /* Modal Pop-up Futuristik */
+        /* MODAL POP-UP */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: rgba(3, 7, 18, 0.92); backdrop-filter: blur(18px);
@@ -157,15 +139,15 @@
             border: 1px solid rgba(16, 185, 129, 0.35);
         }
         .modal-kiri { flex: 1; padding: 45px; display: flex; flex-direction: column; justify-content: center; overflow-y: auto;}
-        .modal-kiri h2 { color: #f8fafc; font-size: 32px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.02em; }
+        .modal-kiri h2 { color: #f8fafc; font-size: 32px; font-weight: 700; margin-bottom: 20px; }
         .modal-kiri p { color: #cbd5e1; font-size: 16px; line-height: 1.8; margin-bottom: 35px; }
         .btn-tutup {
             padding: 11px 28px; background: transparent; color: #f8fafc; border: 2px solid #10b981;
             border-radius: 30px; cursor: pointer; font-weight: 600; align-self: flex-start; transition: 0.3s;
         }
         .btn-tutup:hover { background: #10b981; color: #030712; }
-        .modal-kanan { flex: 1; min-height: 320px; }
-        .modal-kanan img { width: 100%; height: 100%; object-fit: cover; }
+        .modal-kanan { flex: 1; min-height: 320px; background: #0b132b; display: flex; align-items: center; justify-content: center; }
+        .modal-kanan img { width: 100%; height: 100%; object-fit: contain; }
 
         @keyframes geserKanan { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
         @keyframes geserKiri { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
@@ -181,7 +163,7 @@
 </head>
 <body>
 
-    <!-- NAVIGASI HAMBURGER MENU -->
+    <!-- NAVIGASI -->
     <nav>
         <div class="menu-container">
             <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
@@ -203,7 +185,7 @@
             <a href="#profil" class="btn">Jelajahi Profil ➔</a>
         </div>
         <div class="hero-image">
-            <img src="foto.jpg" alt="Foto Profil">
+            <img src="foto.jpg" alt="Foto Profil Farhan Innayatullah">
         </div>
     </section>
 
@@ -241,22 +223,24 @@
         <p class="sub-judul">Jejak langkah karir, organisasi, dan aktivitas profesional.</p>
         
         <div class="grid-kartu">
+            <!-- Pengalaman 1: Bidang Administrasi (PJA AC Mobil) -->
             <div class="kartu-item" onclick="bukaModal(this)">
-                <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80" alt="Kerja"></div>
+                <div class="kartu-gambar"><img src="IMG-20260929-WA0024.jpg" alt="PJA AC Mobil"></div>
                 <div class="kartu-teks">
-                    <h3>Magang Web Developer</h3>
-                    <p>Berpartisipasi dalam pengembangan sistem web perusahaan...</p>
-                    <span class="detail-lengkap" style="display:none;">Selama masa magang, saya berpartisipasi dalam pengembangan website perusahaan. Saya bertugas merancang antarmuka pengguna (UI) dan memastikan website dapat diakses dengan cepat. Ini memberi saya pengalaman berharga dalam bekerja dengan tim profesional.</span>
+                    <h3>Bidang Administrasi</h3>
+                    <p>Menginput data dan merekapitulasi dokumen operasional harian...</p>
+                    <span class="detail-lengkap" style="display:none;">Bertugas di bidang administrasi dengan tanggung jawab menginput data secara akurat, merekapitulasi laporan harian, serta memastikan arsip dokumen dan data perusahaan tersusun dengan rapi dan terorganisir dengan baik selama masa penugasan.</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
             </div>
             
+            <!-- Pengalaman 2: Ketua Karang Taruna -->
             <div class="kartu-item" onclick="bukaModal(this)">
-                <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1477281765962-ef34e8bb0967?auto=format&fit=crop&w=600&q=80" alt="Organisasi"></div>
+                <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Karang Taruna"></div>
                 <div class="kartu-teks">
-                    <h3>Ketua Organisasi IT</h3>
-                    <p>Memimpin divisi teknologi dalam kegiatan kampus dan komunitas...</p>
-                    <span class="detail-lengkap" style="display:none;">Saya dipercaya sebagai ketua organisasi IT kampus. Tugas utama saya meliputi memimpin divisi teknologi, menyelenggarakan seminar pemrograman, dan membangun relasi kerja sama dengan komunitas developer lokal.</span>
+                    <h3>Ketua Karang Taruna (2023 - Sekarang)</h3>
+                    <p>Memimpin organisasi kepemudaan dengan 30+ anggota aktif...</p>
+                    <span class="detail-lengkap" style="display:none;">Memimpin organisasi kepemudaan dengan 30+ anggota aktif untuk menjalankan program tahunan seperti 17 Agustus, malam tasyakuran RT, dan Malam Puncak 17-an, berhasil menggagas program digitalisasi administrasi untuk meningkatkan efisiensi pendataan warga. Dan turut mengelola akun Instagram karang taruna tersebut.</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
             </div>
@@ -270,21 +254,21 @@
         
         <div class="grid-kartu">
             <div class="kartu-item" onclick="bukaModal(this)">
-                <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Web Bisnis"></div>
-                <div class="kartu-teks">
-                    <h3>Website E-Commerce</h3>
-                    <p>Membangun platform toko online dengan fitur keranjang dan transaksi...</p>
-                    <span class="detail-lengkap" style="display:none;">Saya mengembangkan website e-commerce lengkap dengan fitur keranjang belanja dan integrasi pembayaran. Website ini dibuat responsif sehingga sangat nyaman digunakan baik melalui laptop maupun layar smartphone.</span>
+                <div class="kartu-gambar"><img src="IMG-20260929-WA0023.jpg" alt="Dimsum Bubub"></div>
+                    <div class="kartu-teks">
+                    <h3>Dimsum Bubub</h3>
+                    <p>Branding dan pengelolaan media kreatif dengan tagline khas...</p>
+                    <span class="detail-lengkap" style="display:none;">Proyek kreatif kuliner "Dimsum Bubub" dengan mengusung identitas visual yang unik, menarik, dan ramah konsumen, lengkap dengan filosofi jenaka: "Kalo sayang bubub, ya beli Dimbub". Proyek ini berfokus pada kualitas rasa dan daya tarik pemasaran digital.</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
             </div>
             
             <div class="kartu-item" onclick="bukaModal(this)">
-                <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Aplikasi Kasir"></div>
+                <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Web Bisnis"></div>
                 <div class="kartu-teks">
-                    <h3>Sistem POS Pintar</h3>
-                    <p>Aplikasi pencatatan kasir dan manajemen inventaris berbasis web...</p>
-                    <span class="detail-lengkap" style="display:none;">Sebuah aplikasi kasir berbasis web yang saya bangun untuk membantu UMKM. Sistem ini secara otomatis mencatat inventaris barang, menghitung total penjualan harian, dan mencetak struk secara digital.</span>
+                    <h3>Website E-Commerce</h3>
+                    <p>Membangun platform toko online dengan fitur keranjang dan transaksi...</p>
+                    <span class="detail-lengkap" style="display:none;">Saya mengembangkan website e-commerce lengkap dengan fitur keranjang belanja dan integrasi pembayaran. Website ini dibuat responsif sehingga sangat nyaman digunakan baik melalui laptop maupun layar smartphone.</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
             </div>
@@ -297,19 +281,31 @@
         <p class="sub-judul">Dokumentasi pencapaian kompetensi dan pelatihan.</p>
         
         <div class="grid-kartu">
+            <!-- Sertifikat 1: Google AI Professional Certificate (Coursera) -->
             <div class="kartu-item" onclick="bukaModal(this)">
-                <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1589330694653-efa67828f3ea?auto=format&fit=crop&w=600&q=80" alt="Sertifikat"></div>
+                <div class="kartu-gambar"><img src="Coursera 7XFOQ5FA7EAW (1).pdf" alt="Google AI Professional Certificate"></div>
                 <div class="kartu-teks">
-                    <h3>Sertifikasi Web Development</h3>
-                    <p>Kelulusan dari program pelatihan intensif tingkat lanjut...</p>
-                    <span class="detail-lengkap" style="display:none;">Saya berhasil mendapatkan lisensi kelulusan dari Bootcamp pemrograman ternama setelah menyelesaikan kursus intensif selama 3 bulan. Sertifikat ini menjadi bukti kemampuan saya dalam memahami struktur front-end modern.</span>
+                    <h3>Google AI Professional Certificate</h3>
+                    <p>Sertifikasi profesional Coursera (7 kursus mencakup AI Fundamentals, App Building, dll)...</p>
+                    <span class="detail-lengkap" style="display:none;">Sertifikasi Profesional Resmi dari Google via Coursera[span_0](start_span)[span_0](end_span). Berhasil menyelesaikan 7 kursus meliputi AI Fundamentals, AI for Brainstorming and Planning, AI for Research and Insights, AI for Writing and Communicating, AI for Content Creation, AI for Data Analysis, dan AI for App Building[span_1](start_span)[span_1](end_span). Memiliki kemampuan mengaplikasikan AI untuk brainstorming, riset, komunikasi, konten, analisis data, dan coding[span_2](start_span)[span_2](end_span).</span>
+                    <span class="klik-info">Buka Detail ➔</span>
+                </div>
+            </div>
+
+            <!-- Sertifikat 2: Sertifikat PKL PJA AC Mobil -->
+            <div class="kartu-item" onclick="bukaModal(this)">
+                <div class="kartu-gambar"><img src="Setifikat PKL-1.pdf" alt="Sertifikat PKL PJA AC Mobil"></div>
+                <div class="kartu-teks">
+                    <h3>Sertifikat PKL PJA AC Mobil</h3>
+                    <p>Sertifikat magang/PKL yang dikeluarkan oleh PJA AC mobil...</p>
+                    <span class="detail-lengkap" style="display:none;">Sertifikat magang/PKL yang dikeluarkan oleh PT Prioritas Jaya Abadi (Bengkel Prioritas Jaya AC) karena sudah menyelesaikan Praktik Kerja Lapangan di sana selama 3 bulan (terhitung dari tanggal 25 Agustus hingga 25 November 2025).</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- POP-UP (MODAL) DETAIL -->
+    <!-- MODAL POP-UP -->
     <div id="modal-layar" class="modal-overlay">
         <div class="modal-content" id="modal-konten">
             <div class="modal-kiri">
@@ -362,5 +358,4 @@
         }
     </script>
 
-</body>
-</html>
+</
