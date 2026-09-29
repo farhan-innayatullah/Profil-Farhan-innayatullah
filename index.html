@@ -25,21 +25,15 @@
         body::before {
             content: '';
             position: fixed;
-            top: -20%;
-            left: -20%;
-            width: 60vw;
-            height: 60vw;
+            top: -20%; left: -20%; width: 60vw; height: 60vw;
             background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, rgba(56, 189, 248, 0) 70%);
-            z-index: -1;
-            pointer-events: none;
+            z-index: -1; pointer-events: none;
         }
         
-        /* NAVIGASI */
         nav {
             position: fixed; width: 100%; top: 0; z-index: 100;
             background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(16px);
-            padding: 18px 8%; 
-            display: flex; justify-content: flex-end; 
+            padding: 18px 8%; display: flex; justify-content: flex-end; 
             border-bottom: 1px solid rgba(16, 185, 129, 0.15);
         }
         
@@ -51,49 +45,36 @@
             list-style: none; position: absolute; top: 55px; right: 0; width: 210px; 
             background: rgba(11, 19, 36, 0.95); backdrop-filter: blur(20px);
             display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
-            padding: 0; border-radius: 14px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            max-height: 0; overflow: hidden; opacity: 0; 
+            padding: 0; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+            border: 1px solid rgba(16, 185, 129, 0.3); max-height: 0; overflow: hidden; opacity: 0; 
             transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.3s;
         }
-        
         nav ul.aktif { max-height: 320px; opacity: 1; padding: 22px; }
         nav ul li { width: 100%; }
         nav ul li a { 
-            text-decoration: none; color: #cbd5e1; font-weight: 500; 
-            transition: 0.2s; font-size: 15px; display: block; width: 100%;
-            padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+            text-decoration: none; color: #cbd5e1; font-weight: 500; transition: 0.2s; 
+            font-size: 15px; display: block; width: 100%; padding: 6px 0; 
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
         nav ul li:last-child a { border-bottom: none; }
         nav ul li a:hover { color: #10b981; padding-left: 6px; }
 
-        /* SECTIONS & KARTU */
         section { min-height: 100vh; padding: 110px 10% 80px; display: flex; flex-direction: column; justify-content: center;}
         
-        .judul-utama { 
-            font-size: 40px; font-weight: 700; color: #f8fafc; margin-bottom: 12px; text-align: center; 
-            letter-spacing: -0.03em;
-        }
+        .judul-utama { font-size: 40px; font-weight: 700; color: #f8fafc; margin-bottom: 12px; text-align: center; letter-spacing: -0.03em; }
         .judul-utama span { color: #10b981; text-shadow: 0 0 20px rgba(16, 185, 129, 0.3); }
         .sub-judul { color: #94a3b8; margin-bottom: 55px; font-size: 17px; text-align: center; font-weight: 400; }
         
         .grid-kartu { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 30px; width: 100%; }
         
         .kartu-item {
-            background: rgba(15, 23, 42, 0.6); 
-            backdrop-filter: blur(14px);         
-            border-radius: 18px; overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.08); text-align: left; cursor: pointer; 
+            background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(14px);         
+            border-radius: 18px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+            transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.08); text-align: left; cursor: pointer; 
         }
-        .kartu-item:hover { 
-            transform: translateY(-8px); 
-            border-color: rgba(16, 185, 129, 0.6); 
-            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.15); 
-        }
+        .kartu-item:hover { transform: translateY(-8px); border-color: rgba(16, 185, 129, 0.6); box-shadow: 0 15px 40px rgba(16, 185, 129, 0.15); }
         
-        .kartu-gambar { width: 100%; height: 210px; overflow: hidden; }
+        .kartu-gambar { width: 100%; height: 210px; overflow: hidden; background: #0b132b; }
         .kartu-gambar img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s ease; }
         .kartu-item:hover .kartu-gambar img { transform: scale(1.06); filter: brightness(0.85); }
         
@@ -103,7 +84,6 @@
         .klik-info { color: #10b981; font-size: 13px; font-weight: 600; margin-top: 18px; display: inline-flex; align-items: center; gap: 5px; transition: 0.2s; }
         .kartu-item:hover .klik-info { color: #34d399; transform: translateX(4px); }
 
-        /* BERANDA */
         .hero { flex-direction: row; align-items: center; gap: 60px; flex-wrap: wrap; }
         .hero-text { flex: 1; min-width: 320px; animation: geserKanan 1s cubic-bezier(0.16, 1, 0.3, 1); }
         .hero-text h1 { font-size: 52px; font-weight: 700; line-height: 1.15; margin-bottom: 20px; }
@@ -124,7 +104,6 @@
         }
         .hero-image img:hover { transform: scale(1.03) rotate(3deg); border-color: #34d399; }
 
-        /* MODAL POP-UP */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: rgba(3, 7, 18, 0.92); backdrop-filter: blur(18px);
@@ -163,7 +142,6 @@
 </head>
 <body>
 
-    <!-- NAVIGASI -->
     <nav>
         <div class="menu-container">
             <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
@@ -196,21 +174,23 @@
         
         <div class="grid-kartu">
             <div class="kartu-item" onclick="bukaModal(this)">
-                <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="Hobi"></div>
+                <!-- Foto dari internet sebagai ilustrasi Menulis -->
+                <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80" alt="Menulis"></div>
                 <div class="kartu-teks">
-                    <h3>Hobi Coding</h3>
-                    <p>Saya sangat menyukai dunia pemrograman dan eksplorasi logika sistem...</p>
-                    <span class="detail-lengkap" style="display:none;">Saya sangat menyukai dunia pemrograman. Memecahkan masalah logika dan merancang antarmuka website adalah kegiatan yang menyenangkan bagi saya di waktu luang. Saya selalu tertantang untuk mempelajari bahasa dan teknologi baru.</span>
+                    <h3>Hobi Menulis</h3>
+                    <p>Saya sangat menyukai dunia novel dan menuangkan gagasan ke dalam tulisan...</p>
+                    <span class="detail-lengkap" style="display:none;">Saya sangat menyukai dunia novel dan kegiatan menulis kreatif. Menulis cerita dan esai reflektif menjadi sarana bagi saya untuk mengeksplorasi emosi, merangkai imajinasi, serta menyampaikan pesan yang bermakna kepada para pembaca.</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
             </div>
             
             <div class="kartu-item" onclick="bukaModal(this)">
-                <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=600&q=80" alt="Desain"></div>
+                <!-- Foto dari internet sebagai ilustrasi Canva -->
+                <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Design Canva"></div>
                 <div class="kartu-teks">
-                    <h3>Desain UI/UX</h3>
-                    <p>Memfokuskan diri pada estetika tata letak dan kenyamanan pengguna...</p>
-                    <span class="detail-lengkap" style="display:none;">Selain menulis kode, saya juga tertarik pada estetika dan UI/UX design. Saya percaya bahwa tampilan yang indah akan membuat pengguna merasa lebih nyaman. Menggabungkan kode yang efisien dengan desain visual yang memukau adalah tujuan utama saya.</span>
+                    <h3>Design Canva</h3>
+                    <p>Menggunakan platform Canva untuk merancang tata letak presentasi...</p>
+                    <span class="detail-lengkap" style="display:none;">Saya aktif menggunakan Canva untuk merancang berbagai kebutuhan desain grafis, mulai dari presentasi profesional, materi visual media sosial, hingga tata letak materi edukasi dan portofolio dengan estetika visual yang menarik dan terstruktur.</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
             </div>
@@ -223,19 +203,19 @@
         <p class="sub-judul">Jejak langkah karir, organisasi, dan aktivitas profesional.</p>
         
         <div class="grid-kartu">
-            <!-- Pengalaman 1: Bidang Administrasi (PJA AC Mobil) -->
             <div class="kartu-item" onclick="bukaModal(this)">
+                <!-- Menghubungkan langsung ke logo PJA -->
                 <div class="kartu-gambar"><img src="IMG-20260929-WA0024.jpg" alt="PJA AC Mobil"></div>
                 <div class="kartu-teks">
                     <h3>Bidang Administrasi</h3>
                     <p>Menginput data dan merekapitulasi dokumen operasional harian...</p>
-                    <span class="detail-lengkap" style="display:none;">Bertugas di bidang administrasi dengan tanggung jawab menginput data secara akurat, merekapitulasi laporan harian, serta memastikan arsip dokumen dan data perusahaan tersusun dengan rapi dan terorganisir dengan baik selama masa penugasan.</span>
+                    <span class="detail-lengkap" style="display:none;">Bertugas di bidang administrasi dengan tanggung jawab menginput data secara akurat, merekapitulasi laporan harian, serta memastikan arsip dokumen dan data perusahaan tersusun dengan rapi dan terorganisir dengan baik selama masa penugasan PKL di PT Prioritas Jaya Abadi (Bengkel Prioritas Jaya AC).</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
             </div>
             
-            <!-- Pengalaman 2: Ketua Karang Taruna -->
             <div class="kartu-item" onclick="bukaModal(this)">
+                <!-- Foto dari internet sebagai ilustrasi Karang Taruna -->
                 <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Karang Taruna"></div>
                 <div class="kartu-teks">
                     <h3>Ketua Karang Taruna (2023 - Sekarang)</h3>
@@ -254,16 +234,18 @@
         
         <div class="grid-kartu">
             <div class="kartu-item" onclick="bukaModal(this)">
+                <!-- Menghubungkan langsung ke logo Dimbub -->
                 <div class="kartu-gambar"><img src="IMG-20260929-WA0023.jpg" alt="Dimsum Bubub"></div>
-                    <div class="kartu-teks">
-                    <h3>Dimsum Bubub</h3>
-                    <p>Branding dan pengelolaan media kreatif dengan tagline khas...</p>
-                    <span class="detail-lengkap" style="display:none;">Proyek kreatif kuliner "Dimsum Bubub" dengan mengusung identitas visual yang unik, menarik, dan ramah konsumen, lengkap dengan filosofi jenaka: "Kalo sayang bubub, ya beli Dimbub". Proyek ini berfokus pada kualitas rasa dan daya tarik pemasaran digital.</span>
+                <div class="kartu-teks">
+                    <h3>Owner/Founder Dimbub</h3>
+                    <p>Sebuah usaha yang saya bangun di tahun 2025 dengan produk dimsum kukus...</p>
+                    <span class="detail-lengkap" style="display:none;">Sebuah usaha yang saya bangun di tahun 2025 dengan produk yang saya tawarkan adalah dimsum kukus dengan perpaduan beraneka ragam rasa saus. Keunggulan produk ini ada pada dimsum kukus dengan saus bolognese.</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
             </div>
             
             <div class="kartu-item" onclick="bukaModal(this)">
+                <!-- Foto dari internet sebagai ilustrasi Web E-Commerce -->
                 <div class="kartu-gambar"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Web Bisnis"></div>
                 <div class="kartu-teks">
                     <h3>Website E-Commerce</h3>
@@ -281,20 +263,20 @@
         <p class="sub-judul">Dokumentasi pencapaian kompetensi dan pelatihan.</p>
         
         <div class="grid-kartu">
-            <!-- Sertifikat 1: Google AI Professional Certificate (Coursera) -->
             <div class="kartu-item" onclick="bukaModal(this)">
-                <div class="kartu-gambar"><img src="Coursera 7XFOQ5FA7EAW (1).pdf" alt="Google AI Professional Certificate"></div>
+                <!-- Menghubungkan ke gambar Sertifikat Google (Harus kamu sediakan) -->
+                <div class="kartu-gambar"><img src="sertif-google.jpg" alt="Google AI"></div>
                 <div class="kartu-teks">
                     <h3>Google AI Professional Certificate</h3>
                     <p>Sertifikasi profesional Coursera (7 kursus mencakup AI Fundamentals, App Building, dll)...</p>
-                    <span class="detail-lengkap" style="display:none;">Sertifikasi Profesional Resmi dari Google via Coursera[span_0](start_span)[span_0](end_span). Berhasil menyelesaikan 7 kursus meliputi AI Fundamentals, AI for Brainstorming and Planning, AI for Research and Insights, AI for Writing and Communicating, AI for Content Creation, AI for Data Analysis, dan AI for App Building[span_1](start_span)[span_1](end_span). Memiliki kemampuan mengaplikasikan AI untuk brainstorming, riset, komunikasi, konten, analisis data, dan coding[span_2](start_span)[span_2](end_span).</span>
+                    <span class="detail-lengkap" style="display:none;">Sertifikasi Profesional Resmi dari Google via Coursera. Berhasil menyelesaikan 7 kursus meliputi AI Fundamentals, AI for Brainstorming and Planning, AI for Research and Insights, AI for Writing and Communicating, AI for Content Creation, AI for Data Analysis, dan AI for App Building. Memiliki kemampuan mengaplikasikan AI untuk brainstorming, riset, komunikasi, konten, analisis data, dan coding.</span>
                     <span class="klik-info">Buka Detail ➔</span>
                 </div>
             </div>
 
-            <!-- Sertifikat 2: Sertifikat PKL PJA AC Mobil -->
             <div class="kartu-item" onclick="bukaModal(this)">
-                <div class="kartu-gambar"><img src="Setifikat PKL-1.pdf" alt="Sertifikat PKL PJA AC Mobil"></div>
+                <!-- Menghubungkan ke gambar Sertifikat PKL (Harus kamu sediakan) -->
+                <div class="kartu-gambar"><img src="sertif-pkl.jpg" alt="Sertifikat PKL"></div>
                 <div class="kartu-teks">
                     <h3>Sertifikat PKL PJA AC Mobil</h3>
                     <p>Sertifikat magang/PKL yang dikeluarkan oleh PJA AC mobil...</p>
@@ -358,4 +340,5 @@
         }
     </script>
 
-</
+</body>
+</html>
